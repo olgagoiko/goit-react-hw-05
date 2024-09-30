@@ -1,0 +1,16 @@
+.poster {
+  width: 250px;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+.dataMovie {
+  margin-bottom: 10px;
+  font-style: oblique;
+  span {
+    font-weight: bold;
+  }
+}

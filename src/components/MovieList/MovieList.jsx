@@ -1,31 +1,22 @@
-import { useEffect, useState } from 'react';
-import { fetchUsers } from '../../services/api';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-const MoviesApp = () => {
-  const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    const getAllMovies = async () => {
-      const data = await fetchUsers();
-      setUsers(data);
-    };
-    getAllUsers();
-  }, []);
+export default function MovieList({ list }) {
+  const location = useLocation();
+
   return (
-    <div>
-      <h2>Users</h2>
-      <ul>
-        {users.map(user => (
-          <li key={user.id}>
-            <Link to={user.id.toString()}>
-              <p>
-                {user.lastName} {user.firstName}
-              </p>
+    <ul>
+      {list.map(({ id, title, release_date }) => {
+        const year = new Date(release_date);
+
+        return (
+          <li key={id}>
+            <Link to={`/movies/${id}`} state={location}>
+              {title}
+              {'  '} {year.getFullYear() ? year.getFullYear() : <p>not info</p>}
             </Link>
           </li>
-        ))}
-      </ul>
-    </div>
+        );
+      })}
+    </ul>
   );
-};
-export default UsersApp;
+}

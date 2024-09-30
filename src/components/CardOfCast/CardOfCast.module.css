@@ -1,0 +1,23 @@
+.img {
+  width: 150px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  align-items: center;
+  background-color: rgba(248, 250, 252, 0.442);
+}
